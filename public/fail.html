@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- box icons cdn link -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="menu" class="sidebar close">
+      <div class="logo-details">
+        <span class="logo_name">Logo Name</span>
+      </div>
+      <ul class="nav_links">
+        <li>
+          <a href="#">
+            <i class="bx bx-grid-alt"></i>
+            <span class="link_name">DashBoard</span>
+          </a>
+        </li>
+        <li>
+          <div class="icon_link">
+            <a href="#">
+              <i class="bx bx-collection"></i>
+              <span class="link_name">Category</span>
+              <i class="bx bx-chevron-down arrow"></i>
+            </a>
+          </div>
+        </li>
+        <ul class="sub_menu blank">
+          <li>
+            <a class="link_name" href="#">Category</a>
+          </li>
+          <li>
+            <a href="#">Web Design</a>
+          </li>
+          <li>
+            <a href="#">Some other Design</a>
+          </li>
+          <li>
+            <a href="#">reckelss Design</a>
+          </li>
+          <li>
+            <a href="#">Login Design</a>
+          </li>
+        </ul>
+        <li>
+          <div class="icon_link">
+            <a href="#">
+              <i class="bx bx-collection"></i>
+              <span class="link_name">Settings</span>
+              <i class="bx bx-chevron-down arrow"></i>
+            </a>
+          </div>
+        </li>
+        <ul class="sub_menu blank">
+          <li>
+            <a class="link_name" href="#">Settings</a>
+          </li>
+          <li>
+            <a href="#">Profile</a>
+          </li>
+          <li>
+            <a href="#">Logout</a>
+          </li>
+        </ul>
+        <li>
+          <div class="icon_link">
+            <a href="#">
+              <i class="bx bx-collection"></i>
+              <span class="link_name">Posts</span>
+              <i class="bx bx-chevron-down arrow"></i>
+            </a>
+          </div>
+        </li>
+        <div class="profile-details">
+          <div class="profile-content">
+            <img src="src\assets\images\navBarLogo.png" alt="" />
+          </div>
+          <li>
+            <div class="name-job">
+              <div class="profile-name">Admin</div>
+              <div class="job">SOE (Digital Prophets)</div>
+            </div>
+          </li>
+        </div>
+      </ul>
+    </div>
+    <script>
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("service-worker.js")
+          .catch(function (ex) {
+            console.warn(ex);
+            console.warn(
+              "(This warning can be safely ignored outside of the production build.)"
+            );
+          });
+      }
+    </script>
+  </body>
+</html>
