@@ -1,0 +1,12 @@
+.ant-table-tbody .ant-table-row:nth-child(even) {
+  background-color: gray;
+}
+
+.ant-table-container {
+  height: 90px;
+}
+
+.ant-table-row {
+  font-size: 20px;
+  height: 64px;
+}

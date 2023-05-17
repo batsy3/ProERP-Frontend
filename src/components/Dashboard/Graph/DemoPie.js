@@ -2,32 +2,55 @@ import React from "react";
 
 import { Pie } from "@ant-design/plots";
 import { useSelector } from "react-redux";
+import Chart from "react-apexcharts";
 
 const DemoPie = () => {
-  const data = useSelector((state) => state.dashboard.list?.SupplierVSCustomer);
+  // const data = useSelector((state) => state.dashboard.list?.SupplierVSCustomer);
 
-  const config = {
-    appendPadding: 10,
-    data: data ? data : [],
-    angleField: "value",
-    colorField: "type",
-    radius: 1,
-    label: {
-      type: "inner",
-      offset: "-30%",
-      content: ({ percent }) => `${(percent * 100).toFixed(0)}%`,
-      style: {
-        fontSize: 14,
-        textAlign: "center",
+  const optionsRadial = {
+    plotOptions: {
+      pie: {
+        donut: {
+          expandOnClick: true,
+          legend: {
+            position:"left"
+          },
+          labels: {
+            show: true,
+            name: {
+              show: true,
+              fontSize: "100",
+              fontWeight: "600",
+              color: "black",
+            },
+            value: {
+              show: true,
+            },
+            total: {
+              showAlways: true,
+              show: true,
+              fontSize: "60",
+              fontWeight:"600"
+            },
+          },
+        },
       },
     },
-    interactions: [
-      {
-        type: "element-active",
-      },
-    ],
+    colors: ["#FF0000", "#FF9900"],
+    fill: {
+      opacity: 0.8,
+    },
   };
-  return <Pie {...config} />;
+  const seriesRadial = [44, 76];
+  return (
+    <Chart
+      options={optionsRadial}
+      series={seriesRadial}
+      type="donut"
+      width="100%"
+      height={400}
+    />
+  );
 };
 
 export default DemoPie;

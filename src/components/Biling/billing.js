@@ -9,6 +9,8 @@ import { Link, Navigate } from "react-router-dom";
 import { Button, Dropdown, Menu, Table, Tag } from "antd";
 import PageTitle from "../page-header/PageHeader";
 import { loadAllCustomer } from "../../redux/actions/customer/getCustomerAction";
+import "./table.module.css"
+import "../card.css";
 
 const Billing = () => {
   const isLogged = Boolean(localStorage.getItem("isLogged"));
@@ -137,6 +139,7 @@ function CustomTable({ list, total, status }) {
       </div>
       <div>
         <Table
+          
           scroll={{ x: true }}
           loading={!list}
           pagination={{

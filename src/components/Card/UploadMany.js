@@ -2,7 +2,7 @@ import { Button } from "antd";
 import axios from "axios";
 import React, { useState } from "react";
 import { toast } from "react-toastify";
-import "./card.css";
+import "../card.css";
 
 const UploadMany = ({ urlPath }) => {
   const [loader, setLoader] = useState(false);

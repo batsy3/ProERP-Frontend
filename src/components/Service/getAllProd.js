@@ -58,7 +58,7 @@ function CustomTable({ list, total, status }) {
 
   useEffect(() => {
     dispatch(loadProduct({}));
-    dispatch(loadAllProductCategory({}))
+    dispatch(loadAllProductCategory({}));
     setColumnItems(menuItems);
     setColumnsToShow(columns);
   }, []);
@@ -112,7 +112,7 @@ function CustomTable({ list, total, status }) {
             defaultPageSize: 10,
             pageSizeOptions: [10, 20, 50, 100, 200],
             showSizeChanger: true,
-            total: total, 
+            total: total,
 
             onChange: (page, limit) => {
               dispatch(loadProduct({ page, limit, status }));
@@ -126,6 +126,26 @@ function CustomTable({ list, total, status }) {
   );
 }
 
+const MasterTable = ({ list, total, onChange, columns }) => {
+  const addKeys = (arr) => arr.map((i) => ({ ...i, key: i.id }));
+
+  return (
+    <Table
+      scroll={{ x: true }}
+      loading={!list}
+      pagination={{
+        defaultPageSize: 10,
+        pageSizeOptions: [10, 20, 50, 100, 200],
+        showSizeChanger: true,
+        total: total,
+
+        onChange: () => onChange,
+      }}
+      columns={columns}
+      dataSource={list ? addKeys(list) : []}
+    />
+  );
+};
 const GetAllProd = (props) => {
   const dispatch = useDispatch();
   const list = useSelector((state) => state.products.list);

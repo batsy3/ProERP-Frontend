@@ -20,10 +20,13 @@ import Logo from "../../assets/images/navBarLogo.png";
 import User from "../../assets/images/Avatar.png";
 import styled from "styled-components";
 import { Menu, Avatar, Space, Typography } from "antd";
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import styles from "./Sidenav.module.css";
+import { useDispatch, useSelector } from "react-redux";
+
 const Test = ({ color, isCollapsed }) => {
+  const user = localStorage.getItem("user");
   const menu = [
     {
       label: (
@@ -66,7 +69,7 @@ const Test = ({ color, isCollapsed }) => {
       children: [
         {
           label: (
-            <NavLink to="/vendor">
+            <NavLink to="/supplier">
               <span>Vendors</span>
             </NavLink>
           ),
@@ -277,10 +280,12 @@ const Test = ({ color, isCollapsed }) => {
   ];
   const { Text, Title } = Typography;
   return (
-    <div style={{
-      marginTop: isCollapsed ? 150 : 0,
-      maxHeight:"100%"
-    }}>
+    <div
+      style={{
+        marginTop: isCollapsed ? 150 : 0,
+        maxHeight: "100%",
+      }}
+    >
       <Space
         wrap
         hidden={isCollapsed}
@@ -311,7 +316,7 @@ const Test = ({ color, isCollapsed }) => {
             fontSize: 20,
           }}
         >
-          David
+          {user}
         </div>
         <div
           style={{
@@ -324,7 +329,6 @@ const Test = ({ color, isCollapsed }) => {
         >
           Assistant
         </div>
-        <Text></Text>
       </Space>
       <Menu
         theme="dark"

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Table, Button } from "antd";
-import "./card.css";
+import "../card.css";
 import moment from "moment";
 
 function SupplierInvoiceTable({ list, linkTo }) {

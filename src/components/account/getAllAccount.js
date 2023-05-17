@@ -8,6 +8,7 @@ import { useEffect, useState } from "react";
 import { CSVLink } from "react-csv";
 import { useDispatch, useSelector } from "react-redux";
 import { loadAllAccount } from "../../redux/actions/account/getAccountAction";
+import { LoadAllbilling } from "../../redux/actions/billing/billing.actions";
 
 //Date fucntinalities
 let startdate = moment(new Date()).format("YYYY-MM-DD");
@@ -18,6 +19,10 @@ function CustomTable({ list, total }) {
   const [columnItems, setColumnItems] = useState([]);
   const [columnsToShow, setColumnsToShow] = useState([]);
 
+  useEffect(() => {
+    const account = dispatch(loadAllAccount)
+    console.log(account)
+  })
   const columns = [
     {
       title: "ID",
@@ -40,10 +45,8 @@ function CustomTable({ list, total }) {
 
     {
       title: "Account Type ",
-      dataIndex: "account",
-      key: "account",
-      render: (account) => account?.name,
-      responsive: ["md"],
+      dataIndex: "type",
+      key: "type",
     },
   ];
 

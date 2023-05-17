@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 
-import "./card.css";
+import "../card.css";
 
 const DashboardCard = ({ information, count, isCustomer, title }) => {
   return (

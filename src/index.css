@@ -16,14 +16,14 @@ code {
 }
 
 .ant-table .ant-table-container .ant-table-content table thead.ant-table-thead {
-  background-color: rgb(44, 44, 44) !important;
+  background-color:#ffffff !important;
   color: antiquewhite !important;
 }
 
 .ant-table-thead > tr > th {
-  color: #efefef !important;
+  color: #ffffff !important;
   font-weight: 700;
-  background-color: transparent;
+  background-color: transparent !important;
   font-size: 13px;
 }
 

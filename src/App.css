@@ -43,6 +43,7 @@ body {
 
 .ant-row {
   color: var(--text);
+  margin-bottom:10
 }
 
 .ant-layout {
@@ -89,7 +90,7 @@ body {
 } */
 
 .ant-table {
-  color: var(--text);
+  color: #112D63;
 }
 
 .ant-table-cell-row-hover {
@@ -97,11 +98,10 @@ body {
 }
 
 .ant-table .ant-table-container .ant-table-content table thead.ant-table-thead {
-  background-color: var(--table-head);
+  background-color: white !important;
 }
-
 .ant-table-thead > tr > th {
-  background-color: var(--table-head) !important;
+  background-color: #112D63 !important;
 }
 
 .card-header {
@@ -205,13 +205,21 @@ body {
   background-color: var(--bg-secondary);
 }
 
-.ant-input-number-status-error:not(.ant-input-number-disabled):not(.ant-input-number-borderless).ant-input-number,
-.ant-input-number-status-error:not(.ant-input-number-disabled):not(.ant-input-number-borderless).ant-input-number:hover {
+.ant-input-number-status-error:not(.ant-input-number-disabled):not(
+    .ant-input-number-borderless
+  ).ant-input-number,
+.ant-input-number-status-error:not(.ant-input-number-disabled):not(
+    .ant-input-number-borderless
+  ).ant-input-number:hover {
   background-color: var(--bg-secondary);
 }
 
-.ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input,
-.ant-input-status-error:not(.ant-input-disabled):not(.ant-input-borderless).ant-input:hover {
+.ant-input-status-error:not(.ant-input-disabled):not(
+    .ant-input-borderless
+  ).ant-input,
+.ant-input-status-error:not(.ant-input-disabled):not(
+    .ant-input-borderless
+  ).ant-input:hover {
   background-color: var(--bg);
 }
 
@@ -427,8 +435,12 @@ body {
 .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover::before,
 .ant-picker-cell-in-view.ant-picker-cell-range-start.ant-picker-cell-range-hover::before,
 .ant-picker-cell-in-view.ant-picker-cell-range-end.ant-picker-cell-range-hover::before,
-.ant-picker-cell-in-view.ant-picker-cell-range-start:not(.ant-picker-cell-range-start-single).ant-picker-cell-range-hover-start::before,
-.ant-picker-cell-in-view.ant-picker-cell-range-end:not(.ant-picker-cell-range-end-single).ant-picker-cell-range-hover-end::before,
+.ant-picker-cell-in-view.ant-picker-cell-range-start:not(
+    .ant-picker-cell-range-start-single
+  ).ant-picker-cell-range-hover-start::before,
+.ant-picker-cell-in-view.ant-picker-cell-range-end:not(
+    .ant-picker-cell-range-end-single
+  ).ant-picker-cell-range-hover-end::before,
 .ant-picker-panel
   > :not(.ant-picker-date-panel)
   .ant-picker-cell-in-view.ant-picker-cell-in-range.ant-picker-cell-range-hover-start::before,

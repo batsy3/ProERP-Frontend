@@ -180,7 +180,7 @@ const DetailsPurch = () => {
 											<CardComponent>
 												<p>
 													<Typography.Text strong>
-														Supplier Memo No :
+														Purchase Order No :
 													</Typography.Text>{" "}
 													<strong>
 														{singlePurchaseInvoice.supplier_memo_no}
