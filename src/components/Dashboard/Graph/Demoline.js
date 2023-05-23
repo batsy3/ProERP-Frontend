@@ -1,5 +1,5 @@
 import { Line } from "@ant-design/plots";
-import { Card, Col, DatePicker, Row } from "antd";
+import { Card, Col, DatePicker, Row, Typography } from "antd";
 import moment from "moment";
 import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -10,13 +10,14 @@ import NewDashboardCard from "../../Card/Dashboard/NewDashboardCard";
 import Loader from "../../loader/loader";
 import DemoPie from "./DemoPie";
 import BarChart from "./BarChart";
+import Title from "antd/lib/skeleton/Title";
 const DemoLine = () => {
   //Date fucntinalities
   const [startdate, setStartdate] = useState(moment().startOf("month"));
   const [enddate, setEnddate] = useState(moment().endOf("month"));
   const dispatch = useDispatch();
 
-  const data = useSelector((state) => state.dashboard.list?.saleProfitCount);
+  const [data, setData] = useState(null);
   const cardInformation = useSelector(
     (state) => state.dashboard.list?.cardInfo
   );
@@ -24,7 +25,12 @@ const DemoLine = () => {
   const { RangePicker } = DatePicker;
 
   useEffect(() => {
-    dispatch(loadDashboardData({ startdate, enddate }));
+    dispatch(loadDashboardData({ startdate, enddate })).then((res) => {
+      setData(res);
+      console.log(res);
+    });
+
+    console.log(cardInformation);
     dispatch(
       loadAllPurchase({
         page: 1,
@@ -33,15 +39,15 @@ const DemoLine = () => {
         enddate: enddate,
       })
     );
-    dispatch(
-      loadAllSale({
-        page: 1,
-        limit: 10,
-        startdate: startdate,
-        enddate: enddate,
-        user: "",
-      })
-    );
+    // dispatch(
+    //   loadAllSale({
+    //     page: 1,
+    //     limit: 10,
+    //     startdate: startdate,
+    //     enddate: enddate,
+    //     user: "",
+    //   })
+    // );
   }, []);
 
   const onCalendarChange = (dates) => {
@@ -109,14 +115,17 @@ const DemoLine = () => {
         />
       </div>
 
-      <NewDashboardCard information={cardInformation} />
-      <Row>
-        <Col flex={2}>
-          <Card title="Sales vs Profit">{<BarChart />}</Card>
-        </Col>
-        <Col flex={2}>
+      <NewDashboardCard information={cardInformation} data={data} />
+      <Row
+        style={{
+          marginTop: 20,
+        }}
+      >
+        <Col flex={3}>
           <Card
-            title="Income & Expenses"
+            title={
+              <Typography.Title level={2}>Sales vs Profit</Typography.Title>
+            }
             bordered={true}
             style={{
               borderWidth: 1,
@@ -125,7 +134,23 @@ const DemoLine = () => {
               height: 500,
             }}
           >
-           { <DemoPie />}
+            {<BarChart data={data} />}
+          </Card>
+        </Col>
+        <Col flex={2}>
+          <Card
+            title={
+              <Typography.Title level={2}>Expenses vs Income</Typography.Title>
+            }
+            bordered={true}
+            style={{
+              borderWidth: 1,
+              borderRadius: 20,
+              margin: 10,
+              height: 500,
+            }}
+          >
+            {<DemoPie data={data} />}
           </Card>
         </Col>
       </Row>

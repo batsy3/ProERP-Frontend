@@ -4,7 +4,7 @@ import { Pie } from "@ant-design/plots";
 import { useSelector } from "react-redux";
 import Chart from "react-apexcharts";
 
-const DemoPie = () => {
+const DemoPie = ({ data }) => {
   // const data = useSelector((state) => state.dashboard.list?.SupplierVSCustomer);
 
   const optionsRadial = {
@@ -12,9 +12,6 @@ const DemoPie = () => {
       pie: {
         donut: {
           expandOnClick: true,
-          legend: {
-            position:"left"
-          },
           labels: {
             show: true,
             name: {
@@ -30,18 +27,28 @@ const DemoPie = () => {
               showAlways: true,
               show: true,
               fontSize: "60",
-              fontWeight:"600"
+              fontWeight: "600",
             },
           },
         },
       },
     },
+    legend: {
+      position: "bottom",
+    },
+    labels: ["Income", "Expense"],
     colors: ["#FF0000", "#FF9900"],
     fill: {
       opacity: 0.8,
     },
   };
-  const seriesRadial = [44, 76];
+
+  const seriesRadial = [
+    Number(data?.IncomeVsExpense.find((item) => item.type === "income").value),
+    Number(
+      data?.IncomeVsExpense.find((item) => item.type === "expenses").value
+    ),
+  ];
   return (
     <Chart
       options={optionsRadial}

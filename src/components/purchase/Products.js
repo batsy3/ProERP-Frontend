@@ -25,7 +25,7 @@ export default function Products({
           <div className="font-weight-bold border-b">SL</div>
         </Col>
         <Col span={6}>
-          <div className="font-weight-bold border-b">Product</div>
+          <div className="font-weight-bold border-b">Account</div>
         </Col>
         <Col span={5}>
           <div className="font-weight-bold">Quantity</div>
@@ -52,7 +52,7 @@ export default function Products({
                 <Col span={6}>
                   <Form.Item {...restField} name={[name, "product_id"]}>
                     <Select
-                      placeholder="Select Product"
+                      placeholder="Select Account"
                       showSearch
                       optionFilterProp="children"
                       filterOption={(input, option) =>
@@ -140,7 +140,7 @@ export default function Products({
                 block
                 icon={<PlusOutlined />}
               >
-                Add Service
+                Add Purchase
               </Button>
             </Form.Item>
           </>

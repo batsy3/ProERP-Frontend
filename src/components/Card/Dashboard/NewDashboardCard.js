@@ -4,7 +4,8 @@ import { Card, Space, Typography } from "antd";
 import { Col, Row } from "antd";
 import Title from "antd/lib/skeleton/Title";
 
-const NewDashboardCard = ({ information }) => {
+const NewDashboardCard = ({ information, data }) => {
+  console.log(data);
   const { Text, Title, Link } = Typography;
   const style = {
     background: "#0092ff",
@@ -60,12 +61,12 @@ const NewDashboardCard = ({ information }) => {
                     marginTop: 8,
                   }}
                 >
-                  {information?.purchase_total ? (
-                    information?.purchase_total
+                  {data ? (
+                    <Title>{data?.cardInfo.purchase_count}</Title>
                   ) : (
                     <Row>
                       <Title level={2}>
-                        6{" "}
+                        0{" "}
                         <span
                           style={{
                             fontSize: 15,
@@ -120,7 +121,7 @@ const NewDashboardCard = ({ information }) => {
           >
             <Row>
               <Col flex={2}>
-                <Text strong>Total Outgoing Bills</Text>
+                <Text strong>Total Incoming Bills</Text>
               </Col>
               <Col flex={3}>
                 <i className="icon-rocket font-medium-4 float-right"></i>
@@ -134,11 +135,11 @@ const NewDashboardCard = ({ information }) => {
                   }}
                 >
                   {information?.purchase_total ? (
-                    information?.purchase_total
+                    <Title>{information?.purchase_total}</Title>
                   ) : (
                     <Row>
                       <Title level={2}>
-                        6{" "}
+                        0{" "}
                         <span
                           style={{
                             fontSize: 15,
@@ -193,7 +194,7 @@ const NewDashboardCard = ({ information }) => {
           >
             <Row>
               <Col flex={2}>
-                <Text strong>Total Outgoing Bills</Text>
+                <Text strong>Total Incoming Payments</Text>
               </Col>
               <Col flex={3}>
                 <i className="icon-rocket font-medium-4 float-right"></i>
@@ -206,8 +207,8 @@ const NewDashboardCard = ({ information }) => {
                     marginTop: 8,
                   }}
                 >
-                  {information?.purchase_total ? (
-                    information?.purchase_total
+                  {information?.sale_count ? (
+                    <Title>{information?.sale_count}</Title>
                   ) : (
                     <Row>
                       <Title level={2}>
@@ -266,7 +267,7 @@ const NewDashboardCard = ({ information }) => {
           >
             <Row>
               <Col flex={2}>
-                <Text strong>Total Outgoing Bills</Text>
+                <Text strong>Total Outgoing Payments</Text>
               </Col>
               <Col flex={3}>
                 <i className="icon-rocket font-medium-4 float-right"></i>
@@ -280,7 +281,7 @@ const NewDashboardCard = ({ information }) => {
                   }}
                 >
                   {information?.purchase_total ? (
-                    information?.purchase_total
+                    <Title>{information?.purchase_total}</Title>
                   ) : (
                     <Row>
                       <Title level={2}>
@@ -322,83 +323,6 @@ const NewDashboardCard = ({ information }) => {
         </Col>
       </Row>
 
-      {/* <div className="col-xl-3 col-sm-6 col-12">
-            <div className="card dashboard-card">
-              <div className="card-content">
-                <div className="card-body">
-                  <div className="media d-flex">
-                    <div className="media-body text-left">
-                      <h3 className="dark">
-                        {information?.sale_total ? information?.sale_total : 0}
-                      </h3>
-                      <span className="dark">Total Sale</span>
-                    </div>
-                    <div className="align-self-center">
-                      <i className="icon-rocket font-large-2 float-right"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-xl-3 col-sm-6 col-12">
-            <div className="card dashboard-card">
-              <div className="card-content">
-                <div className="card-body">
-                  <div className="media d-flex">
-                    <div className="media-body text-left">
-                      <h3 className="dark">
-                        {information?.sale_profit
-                          ? information?.sale_profit
-                          : 0}
-                      </h3>
-                      <span className="dark">Total Profit</span>
-                    </div>
-                    <div className="align-self-center">
-                      <i className="icon-wallet font-large-2 float-right"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-xl-3 col-sm-6 col-12">
-            <div className="card dashboard-card">
-              <div className="card-content">
-                <div className="card-body">
-                  <div className="media d-flex">
-                    <div className="media-body text-left">
-                      <h3 className="dark">
-                        {information?.purchase_count
-                          ? information?.purchase_count
-                          : 0}
-                      </h3>
-                      <span
-                        className="strong dark"
-                        style={{ fontSize: "11px", fontWeight: "bold" }}
-                      >
-                        Purchase Invoice{" "}
-                      </span>
-                    </div>
-                    <div className="media-body text-right">
-                      <h3 className="dark">
-                        {information?.sale_count ? information?.sale_count : 0}
-                      </h3>
-                      <span
-                        className="strong dark"
-                        style={{ fontSize: "11px", fontWeight: "bold" }}
-                      >
-                        Sale Invoice{" "}
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> */}
     </Fragment>
   );
 };

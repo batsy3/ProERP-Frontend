@@ -4,7 +4,7 @@ import Chart from "react-apexcharts";
 
 import { useSelector } from "react-redux";
 
-const BarChart = () => {
+const BarChart = ({data}) => {
   // const data = useSelector((state) => state.dashboard.list?.customerSaleProfit);
   const fil = ["Year", "Month", "Day"];
   const [filter, setFilter] = useState();

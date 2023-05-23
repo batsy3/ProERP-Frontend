@@ -4,11 +4,12 @@ const getSetting = async () => {
   try {
     const res = await axios.get(`setting`)
     
+
+    console.log(res.data)
     return {
       result: res.data,
       message: "success",
     };
-    // return data;
   } catch (error) {
     console.log(error.message);
   }

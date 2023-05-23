@@ -17,6 +17,8 @@ export const loadDashboardData = ({ startdate, enddate }) => {
       );
       //dispatching data
       dispatch(getDashboardData(data));
+      console.log(data)
+      return data
     } catch (error) {
       console.log(error.message);
     }

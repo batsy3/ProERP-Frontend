@@ -15,6 +15,7 @@ export const loadSinglePurchase = (id) => {
       const data = await axios.get(`purchase-invoice/${id}`);
       //dispatching data
       dispatch(detailPurchaseAction(data));
+      return data;
     } catch (error) {
       console.log(error.message);
     }
