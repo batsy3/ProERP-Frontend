@@ -16,20 +16,24 @@ const NewDashboardCard = ({ information, data }) => {
       style={{
         justifyContent: "center",
         alignItems: "center",
+        display: "flex",
       }}
     >
       <Row
+        align="middle"
+        justify="center"
         gutter={{
           xs: 8,
           sm: 16,
           md: 300,
-          lg: 32,
         }}
         style={{
-          marginLeft: 40,
+          alignItems: "center",
+          justifyContent: "center",
+          margin: 50,
         }}
       >
-        <Col
+        {/* <Col
           className="gutter-row"
           span={5}
           style={{
@@ -174,10 +178,11 @@ const NewDashboardCard = ({ information, data }) => {
               </Col>
             </Row>
           </Card>
-        </Col>
+        </Col> */}
         <Col
           className="gutter-row"
-          span={5}
+          // span={5}
+          flex={2}
           style={{
             margin: 10,
           }}
@@ -250,7 +255,8 @@ const NewDashboardCard = ({ information, data }) => {
         </Col>
         <Col
           className="gutter-row"
-          span={6}
+          // span={6}
+          flex={3}
           style={{
             margin: 10,
           }}
@@ -322,7 +328,6 @@ const NewDashboardCard = ({ information, data }) => {
           </Card>
         </Col>
       </Row>
-
     </Fragment>
   );
 };

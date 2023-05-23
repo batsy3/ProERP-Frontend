@@ -29,7 +29,7 @@ const Dashboard = () => {
               </Col>
             </Row>
           </div>
-          <div>
+          {/* <div>
             <Row gutter={[30, 30]}>
               <Col sm={24} md={24} lg={12} span={24}>
                 <Card
@@ -50,7 +50,7 @@ const Dashboard = () => {
                 </Card>
               </Col>
             </Row>
-          </div>
+          </div> */}
         </div>
       </div>
     </>

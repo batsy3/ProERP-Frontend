@@ -138,7 +138,7 @@ const Test = ({ color, isCollapsed }) => {
         {
           label: (
             <NavLink to="/account/">
-              <span>Account</span>
+              <span>Chart of Accounts</span>
             </NavLink>
           ),
           key: "accountList",

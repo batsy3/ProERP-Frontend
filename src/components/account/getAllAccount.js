@@ -21,7 +21,6 @@ function CustomTable({ list, total }) {
 
   useEffect(() => {
     const account = dispatch(loadAllAccount)
-    console.log(account)
   })
   const columns = [
     {
@@ -39,13 +38,13 @@ function CustomTable({ list, total }) {
 
     {
       title: "Account",
-      dataIndex: "name",
+      dataIndex: "type",
       key: "name",
     },
 
     {
       title: "Account Type ",
-      dataIndex: "type",
+      dataIndex: "name",
       key: "type",
     },
   ];
